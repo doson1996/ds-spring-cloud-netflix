@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ds</groupId>
-    <artifactId>admin-provider</artifactId>
+    <artifactId>common</artifactId>
     <version>${rversion}</version>
     <packaging>jar</packaging>
-    <name>admin-provider</name>
-    <description>admin-provider</description>
+    <name>common</name>
+    <description>common</description>
 
     <parent>
         <groupId>com.ds</groupId>
@@ -26,13 +26,19 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-http</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
