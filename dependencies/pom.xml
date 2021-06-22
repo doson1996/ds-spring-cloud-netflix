@@ -5,7 +5,7 @@
 
     <groupId>com.ds</groupId>
     <artifactId>dependencies</artifactId>
-    <version>${rversion}</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>dependencies</name>
     <description>Spring Cloud Netflix Demo Project</description>
@@ -26,6 +26,7 @@
     </properties>
 
     <modules>
+        <module>../gateway</module>
         <module>../common</module>
         <module>../eureka</module>
         <module>../admin-provider</module>
@@ -54,6 +55,18 @@
 
             <dependency>
                 <groupId>com.ds</groupId>
+                <artifactId>eureka</artifactId>
+                <version>${rversion}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ds</groupId>
+                <artifactId>gateway</artifactId>
+                <version>${rversion}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ds</groupId>
                 <artifactId>admin-consumer</artifactId>
                 <version>${rversion}</version>
             </dependency>
@@ -61,12 +74,6 @@
             <dependency>
                 <groupId>com.ds</groupId>
                 <artifactId>admin-provider</artifactId>
-                <version>${rversion}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.ds</groupId>
-                <artifactId>common</artifactId>
                 <version>${rversion}</version>
             </dependency>
 
@@ -103,7 +110,7 @@
 
     <repositories>
         <repository>
-            <id>spring</id>
+            <id>central</id>
             <url>https://maven.aliyun.com/repository/central</url>
             <releases>
                 <enabled>true</enabled>
@@ -148,6 +155,7 @@
             </snapshots>
         </repository>
     </repositories>
+
     <pluginRepositories>
         <pluginRepository>
             <id>spring-snapshots</id>

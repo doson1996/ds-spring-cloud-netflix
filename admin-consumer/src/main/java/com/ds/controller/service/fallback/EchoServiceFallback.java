@@ -7,6 +7,6 @@ import org.springframework.stereotype.Component;
 public class EchoServiceFallback implements EchoService {
     @Override
     public String echo(String msg) {
-        return "来自熔断的返回";
+        return "服务降级";
     }
 }
