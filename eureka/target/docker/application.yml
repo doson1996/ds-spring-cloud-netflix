@@ -5,6 +5,16 @@ spring:
   application:
     name: admin-consumer
 
+feign:
+  hystrix:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,hystrix.stream
+
 eureka:
   client:
     serviceUrl:

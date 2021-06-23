@@ -5,6 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 
+/**
+ * @author ds
+ */
 @EnableDiscoveryClient
 @SpringBootApplication
 public class AdminProviderApplication {
