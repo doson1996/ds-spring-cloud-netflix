@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @EnableFeignClients
 @EnableDiscoveryClient
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.ds"})
 @EnableHystrixDashboard
 public class AdminConsumerApplication {
     public static void main(String[] args) {

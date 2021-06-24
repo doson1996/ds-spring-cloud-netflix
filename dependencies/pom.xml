@@ -28,6 +28,7 @@
     <modules>
         <module>../gateway</module>
         <module>../common</module>
+        <module>../common-redis</module>
         <module>../eureka</module>
         <module>../admin-provider</module>
         <module>../admin-consumer</module>
@@ -50,6 +51,12 @@
             <dependency>
                 <groupId>com.ds</groupId>
                 <artifactId>common</artifactId>
+                <version>${rversion}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ds</groupId>
+                <artifactId>common-redis</artifactId>
                 <version>${rversion}</version>
             </dependency>
 
@@ -90,20 +97,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
-                <configuration>
-                    <failOnNoGitDirectory>false</failOnNoGitDirectory>
-                </configuration>
-            </plugin>
-            <plugin>
-                <!--skip deploy (this is just a test module) -->
-                <artifactId>maven-deploy-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
             </plugin>
         </plugins>
     </build>
