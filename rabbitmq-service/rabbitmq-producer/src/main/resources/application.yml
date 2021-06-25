@@ -1,0 +1,51 @@
+server:
+  port: 9101
+
+spring:
+  application:
+    name: rabbitmq-producer
+  cloud:
+    stream:
+      binders: #需要绑定的rabbitmq的服务信息
+        defaultRabbit:  #定义的名称，用于bidding整合
+          type: rabbit  #消息组件类型
+          environment:  #配置rabbimq连接环境
+            spring:
+              rabbitmq:
+                host: dus.com   #rabbitmq 服务器的地址
+                port: 5672           #rabbitmq 服务器端口
+                username: ds       #rabbitmq 用户名
+                password: test@123       #rabbitmq 密码
+                virtual-host: /       #虚拟路径
+      bindings:        #服务的整合处理
+        test-topic:    #这个是消息通道的名称 --->保存订单输出通道
+          destination: exchange-test-topic     #exchange名称,交换模式默认是topic;把SpringCloud stream的消息输出通道绑定到RabbitMQ的exchange-saveOrder交换器。
+          content-type: application/json      #设置消息的类型，本次为json
+          default-binder: defaultRabbit
+          group: test              #分组
+#spring:
+#  application:
+#    name: rabbitmq-producer
+#  cloud:
+#    stream:
+#      binders:
+#        test:
+#          type: rabbit
+#          environment:
+#            spring:
+#              rabbitmq:
+#                addresses: dus.com
+#                port: 5672
+#                username: ds
+#                password: test@123
+#                virtual-host: /
+#      bindings:
+#        test-topic:
+#          destination: test-topic
+#          content-type: application/json
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka.ds.com:8761/eureka/
+

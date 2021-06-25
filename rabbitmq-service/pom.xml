@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ds</groupId>
-    <artifactId>common-redis</artifactId>
+    <artifactId>rabbitmq-service</artifactId>
     <version>${rversion}</version>
-    <packaging>jar</packaging>
-    <name>common-redis</name>
-    <description>common-redis</description>
+    <packaging>pom</packaging>
+    <name>rabbitmq-service</name>
+    <description>rabbitmq-service</description>
 
     <parent>
         <groupId>com.ds</groupId>
@@ -21,20 +21,25 @@
 
     </properties>
 
+    <modules>
+        <module>rabbitmq-producer</module>
+        <module>rabbitmq-consumer</module>
+    </modules>
+
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <groupId>com.ds</groupId>
+            <artifactId>common</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
         </dependency>
     </dependencies>
 

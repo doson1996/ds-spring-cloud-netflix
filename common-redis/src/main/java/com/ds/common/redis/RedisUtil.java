@@ -1,9 +1,11 @@
 package com.ds.common.redis;
 
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 /**
  * redis工具类
@@ -19,6 +21,9 @@ public class RedisUtil {
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
+    @Resource
+    private StringRedisTemplate stringRedisTemplate;
+
     /**
      * string取值
      * @param key
@@ -28,10 +33,6 @@ public class RedisUtil {
        return  (String) redisTemplate.opsForValue().get(key);
     }
 
-    public String hget(String key, Object hashKey) {
-        return (String) redisTemplate.opsForHash().get(key, hashKey);
-    }
-
     /**
      * string存值
      * @param key
@@ -39,6 +40,16 @@ public class RedisUtil {
      */
     public void set(String key, Object value) {
        redisTemplate.opsForValue().set(key, value);
+    }
+
+    /**
+     * string 带过期时间存值
+     * @param key
+     * @param value
+     * @param seconds
+     */
+    public void set(String key, Object value, long seconds) {
+        redisTemplate.opsForValue().set(key, value, seconds, TimeUnit.SECONDS);
     }
 
 }

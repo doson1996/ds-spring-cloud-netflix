@@ -23,10 +23,12 @@
         <spring.cloud.version>Hoxton.SR11</spring.cloud.version>
 
         <hutool.version>5.2.5</hutool.version>
+        <jwt.version>8.16</jwt.version>
     </properties>
 
     <modules>
         <module>../gateway</module>
+        <module>../rabbitmq-service</module>
         <module>../common</module>
         <module>../common-redis</module>
         <module>../eureka</module>
@@ -62,6 +64,12 @@
 
             <dependency>
                 <groupId>com.ds</groupId>
+                <artifactId>rabbitmq-service</artifactId>
+                <version>${rversion}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ds</groupId>
                 <artifactId>eureka</artifactId>
                 <version>${rversion}</version>
             </dependency>
@@ -89,17 +97,14 @@
                 <artifactId>hutool-http</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>${jwt.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
     <repositories>
         <repository>
