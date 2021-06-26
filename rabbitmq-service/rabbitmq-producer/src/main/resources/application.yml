@@ -23,26 +23,6 @@ spring:
           content-type: application/json      #设置消息的类型，本次为json
           default-binder: defaultRabbit
           group: test              #分组
-#spring:
-#  application:
-#    name: rabbitmq-producer
-#  cloud:
-#    stream:
-#      binders:
-#        test:
-#          type: rabbit
-#          environment:
-#            spring:
-#              rabbitmq:
-#                addresses: dus.com
-#                port: 5672
-#                username: ds
-#                password: test@123
-#                virtual-host: /
-#      bindings:
-#        test-topic:
-#          destination: test-topic
-#          content-type: application/json
 
 eureka:
   client:

@@ -52,4 +52,13 @@ public class RedisUtil {
         redisTemplate.opsForValue().set(key, value, seconds, TimeUnit.SECONDS);
     }
 
+    /**
+     * list 从队列左边插入一个元素
+     * @param key
+     * @param value
+     */
+    public void leftPush(String key, Object value) {
+        redisTemplate.opsForList().leftPush(key, value);
+    }
+
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * @author ds
  */
-@FeignClient(name = "admin-provider",fallback = EchoServiceFallback.class)
+@FeignClient(name = "admin-provider", fallback = EchoServiceFallback.class)
 public interface EchoService {
 
     /**

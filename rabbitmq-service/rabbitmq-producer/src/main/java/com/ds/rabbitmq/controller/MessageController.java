@@ -1,5 +1,6 @@
 package com.ds.rabbitmq.controller;
 
+import com.ds.common.constant.MessageConstant;
 import com.ds.common.result.Result;
 import com.ds.rabbitmq.producer.MessageProducer;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,10 +25,10 @@ public class MessageController {
     public Result<String> sendTestMsg(@RequestParam String msg) {
         boolean result = messageProducer.sendTestMsg(msg);
         if (result) {
-            return Result.ok("消息发送成功", msg);
+            return Result.ok(MessageConstant.SUCCESS, msg);
         }
 
-        return Result.fail("消息发送失败", msg);
+        return Result.fail(MessageConstant.FAILED, msg);
     }
 
 }

@@ -11,7 +11,6 @@ import org.springframework.cloud.stream.annotation.EnableBinding;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-
 @EnableBinding(MessageSource.class)
 public class RabbitMQProducerApplication {
     public static void main(String[] args) {

@@ -1,6 +1,7 @@
-package com.ds.rabbitmq.service;
+package com.ds.controller.service;
 
-import com.ds.rabbitmq.service.fallback.MessageServiceFallback;
+import com.ds.common.result.Result;
+import com.ds.controller.service.fallback.MessageServiceFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,5 +17,5 @@ public interface MessageService {
      * @return
      */
     @PostMapping("sendTestMsg")
-    boolean sendTestMsg(@RequestParam String msg);
+    Result<String> sendTestMsg(@RequestParam String msg);
 }

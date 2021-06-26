@@ -1,8 +1,10 @@
 package com.ds.controller;
 
+import cn.hutool.core.date.DateUtil;
 import com.ds.common.exception.BusinessException;
 import com.ds.common.result.Result;
 import com.ds.controller.service.EchoService;
+import com.ds.controller.service.MessageService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -18,15 +20,20 @@ public class TestController {
     @Resource
     private EchoService echoService;
 
+    @Resource
+    private MessageService messageService;
+
     @GetMapping("get")
     public Result<String> get(@RequestParam String key){
         String res = echoService.get(key);
+        messageService.sendTestMsg("test get-> " + key + " -->" + DateUtil.now());
         return Result.ok(res);
     }
 
     @PostMapping("set")
     public Result<String> set(@RequestParam String key, @RequestParam String value){
         String res = echoService.set(key, value);
+        messageService.sendTestMsg("test set-> " + key + " : " + value + " -->" + DateUtil.now());
         return Result.ok(res);
     }
 
