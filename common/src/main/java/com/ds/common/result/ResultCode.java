@@ -63,6 +63,6 @@ public class ResultCode {
     /**
      * 参数错误
      */
-    public static final int PARAMETER_ERROR = 50011;
+    public static final int PARAMETER_ERROR = 51001;
 
 }

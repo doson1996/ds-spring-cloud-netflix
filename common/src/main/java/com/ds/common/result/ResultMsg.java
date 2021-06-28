@@ -10,12 +10,12 @@ public class ResultMsg {
     /**
      * 返回成功消息
      */
-    public static final String SUCCESS_MSG = "成功";
+    public static final String SUCCESS_MSG = "success";
 
     /**
      * 返回失败消息
      */
-    public static final String FAIL_MSG = "失败";
+    public static final String FAIL_MSG = "fail";
 
     /**------------------------- 成功返回消息 -----------------------------------*/
 

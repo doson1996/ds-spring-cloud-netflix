@@ -24,7 +24,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.ds</groupId>
+            <groupId>${parent.groupId}</groupId>
             <artifactId>common</artifactId>
             <version>${rversion}</version>
         </dependency>

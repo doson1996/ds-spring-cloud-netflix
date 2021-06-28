@@ -5,10 +5,24 @@ package com.ds.common.result;
  */
 public enum ResultEnum {
 
-    OK(ResultCode.SUCCESS, ResultMsg.SUCCESS_MSG);
+    /**
+     * 成功返回
+     */
+    SUCCESS(2000, "success"),
 
+    /**
+     * 失败返回
+     */
+    FAIL(5000, "fail");
+
+    /**
+     * code
+     */
     private int code;
 
+    /**
+     * 消息
+     */
     private String message;
 
     ResultEnum(int code, String message) {
@@ -20,15 +34,8 @@ public enum ResultEnum {
         return code;
     }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
-
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }

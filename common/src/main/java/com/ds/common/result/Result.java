@@ -1,15 +1,28 @@
 package com.ds.common.result;
 
+import java.io.Serializable;
+
 /**
- * rest返回
+ * 通用返回
  * @author ds
  */
-public class Result<T> {
+public class Result<T> implements Serializable {
 
+    private static final long serialVersionUID = 6625888347761546266L;
+
+    /**
+     * 返回code
+     */
     private int code;
 
+    /**
+     * 返回消息
+     */
     private String message;
 
+    /**
+     * 返回数据
+     */
     private T data;
 
     public Result() {
@@ -32,8 +45,16 @@ public class Result<T> {
      * @param data 数据
      * @return 带指定数据的成功返回
      */
-    public static <T> Result<T> ok(T data){
+    public static <T> Result<T> okData(T data){
         return new Result<T>(ResultCode.SUCCESS, ResultMsg.SUCCESS_MSG, data);
+    }
+
+    /**
+     * @param message 消息
+     * @return 带指定消息的成功返回
+     */
+    public static <T> Result<T> ok(String message){
+        return new Result<T>(ResultCode.SUCCESS, message, null);
     }
 
     /**
@@ -56,8 +77,16 @@ public class Result<T> {
      * @param data 数据
      * @return 带指定数据的失败返回
      */
-    public static <T> Result<T> fail(T data){
+    public static <T> Result<T> failData(T data){
         return new Result<>(ResultCode.FAIL, ResultMsg.FAIL_MSG, data);
+    }
+
+    /**
+     * @param message 数据
+     * @return 带指定数据的失败返回
+     */
+    public static <T> Result<T> fail(String message){
+        return new Result<>(ResultCode.FAIL, message, null);
     }
 
     /**
@@ -92,4 +121,57 @@ public class Result<T> {
     public void setData(T data) {
         this.data = data;
     }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "code=" + code +
+                ", message='" + message + '\'' +
+                ", data=" + data +
+                '}';
+    }
+
+    public static <T> ResultBuilder<T> builder() {
+        return new ResultBuilder<T>();
+    }
+
+    public static final class ResultBuilder<T> {
+
+        private int code;
+
+        private String message;
+
+        private T data;
+
+        private ResultBuilder() {
+        }
+
+        public ResultBuilder<T> withCode(int code) {
+            this.code = code;
+            return this;
+        }
+
+        public ResultBuilder<T> withMessage(String message) {
+            this.message = message;
+            return this;
+        }
+
+        public ResultBuilder<T> withData(T data) {
+            this.data = data;
+            return this;
+        }
+
+        /**
+         * Build Result.
+         * @see Result
+         */
+        public Result<T> build() {
+            Result<T> Result = new Result<T>();
+            Result.setCode(code);
+            Result.setMessage(message);
+            Result.setData(data);
+            return Result;
+        }
+    }
+
 }
