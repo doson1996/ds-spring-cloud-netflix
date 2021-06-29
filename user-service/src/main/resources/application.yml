@@ -10,8 +10,8 @@ spring:
   #MySql 配置
   datasource:
     url: jdbc:mysql://${base.mysql}/example?serverTimezone=Hongkong&useUnicode=true&useSSL=false&characterEncoding=utf8
-    username: ds
-    password: test@123
+    username: mpw:bh6qnXY6feDedY5VElyExw==
+    password: mpw:CeAG7J23LY30sRQbsJk72w==
     driver-class-name: com.mysql.cj.jdbc.Driver
   #Redis 配置
   redis:
