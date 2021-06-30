@@ -16,11 +16,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.List;
 
-
 /**
  * @author ds
  */
-@Api("用户管理")
+@Api(tags = "用户管理")
 @RestController
 @RequestMapping("user")
 public class UserController {
