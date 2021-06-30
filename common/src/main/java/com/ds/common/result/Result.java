@@ -9,14 +9,16 @@ import java.io.Serializable;
 public class Result<T> implements Serializable {
 
     private static final long serialVersionUID = 6625888347761546266L;
-
+    
     /**
-     * 返回code
+     * 返回状态码
+     * @see ResultCode
      */
     private int code;
 
     /**
      * 返回消息
+     * @see ResultMsg
      */
     private String message;
 
@@ -46,7 +48,7 @@ public class Result<T> implements Serializable {
      * @return 带指定数据的成功返回
      */
     public static <T> Result<T> okData(T data){
-        return new Result<T>(ResultCode.SUCCESS, ResultMsg.SUCCESS_MSG, data);
+        return new Result<>(ResultCode.SUCCESS, ResultMsg.SUCCESS_MSG, data);
     }
 
     /**
@@ -54,7 +56,7 @@ public class Result<T> implements Serializable {
      * @return 带指定消息的成功返回
      */
     public static <T> Result<T> ok(String message){
-        return new Result<T>(ResultCode.SUCCESS, message, null);
+        return new Result<>(ResultCode.SUCCESS, message, null);
     }
 
     /**
@@ -63,7 +65,7 @@ public class Result<T> implements Serializable {
      * @return 带指定消息和数据的成功返回
      */
     public static <T> Result<T> ok(String message,T data){
-        return new Result<T>(ResultCode.SUCCESS, message, data);
+        return new Result<>(ResultCode.SUCCESS, message, data);
     }
 
     /**
@@ -71,14 +73,6 @@ public class Result<T> implements Serializable {
      */
     public static <T> Result<T> fail(){
         return new Result<>(ResultCode.FAIL, ResultMsg.FAIL_MSG, null);
-    }
-
-    /**
-     * @param data 数据
-     * @return 带指定数据的失败返回
-     */
-    public static <T> Result<T> failData(T data){
-        return new Result<>(ResultCode.FAIL, ResultMsg.FAIL_MSG, data);
     }
 
     /**

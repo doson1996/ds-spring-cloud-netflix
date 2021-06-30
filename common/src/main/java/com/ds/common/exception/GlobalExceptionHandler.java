@@ -2,6 +2,7 @@ package com.ds.common.exception;
 
 import cn.hutool.core.util.StrUtil;
 import com.ds.common.result.Result;
+import com.ds.common.result.ResultEnum;
 import com.ds.common.result.ResultMsg;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -23,13 +24,18 @@ public class GlobalExceptionHandler {
      * @return
      */
     @ExceptionHandler(Exception.class)
-    public Result handlerException(Exception e){
+    public Result<Object> handlerException(Exception e){
         log.error("发生异常-->>" + e);
         e.printStackTrace();
 
-        return new Result(HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(),
-                null);
+        return Result.builder()
+                .withCode(ResultEnum.INTERNAL_SERVER_ERROR.getCode())
+                .withMessage(ResultEnum.INTERNAL_SERVER_ERROR.getMessage())
+                .build();
+
+       /* return new Result(ResultEnum.INTERNAL_SERVER_ERROR.getCode(),
+                ResultEnum.INTERNAL_SERVER_ERROR.getMessage(),
+                null);*/
     }
 
     /**
@@ -38,7 +44,7 @@ public class GlobalExceptionHandler {
      * @return
      */
     @ExceptionHandler(BusinessException.class)
-    public Result handlerBusinessException(BusinessException e){
+    public Result<Void> handlerBusinessException(BusinessException e){
         log.error("发生异常: " + e);
 
         String msg = ResultMsg.Business_Exception_MSG;
@@ -55,7 +61,7 @@ public class GlobalExceptionHandler {
      * @return
      */
     @ExceptionHandler(IllegalArgumentException.class)
-    public Result handlerIllegalArgumentException(IllegalArgumentException e){
+    public Result<Void> handlerIllegalArgumentException(IllegalArgumentException e){
         log.error("发生异常: " + e);
 
         String msg = ResultMsg.PARAMETER_ERROR_MSG;
