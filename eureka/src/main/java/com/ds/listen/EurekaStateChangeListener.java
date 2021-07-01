@@ -1,14 +1,10 @@
 package com.ds.listen;
 
-import cn.hutool.core.date.DateUtil;
-import com.ds.common.redis.RedisUtil;
 import com.netflix.appinfo.InstanceInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.netflix.eureka.server.event.*;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
 
 /**
  * eureka 监听
