@@ -43,20 +43,13 @@ public class Result<T> implements Serializable {
         return new Result<>(ResultCode.SUCCESS, ResultMsg.SUCCESS_MSG, null);
     }
 
+
     /**
      * @param data 数据
      * @return 带指定数据的成功返回
      */
-    public static <T> Result<T> okData(T data){
+    public static <T> Result<T> ok(T data){
         return new Result<>(ResultCode.SUCCESS, ResultMsg.SUCCESS_MSG, data);
-    }
-
-    /**
-     * @param message 消息
-     * @return 带指定消息的成功返回
-     */
-    public static <T> Result<T> ok(String message){
-        return new Result<>(ResultCode.SUCCESS, message, null);
     }
 
     /**

@@ -9,3 +9,15 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka.ds.com:8761/eureka/
+
+ds:
+  swagger:
+    enable: true
+    title: 消费者
+    description: 消费者
+    version: 1.0.1
+    base-package: com.ds
+    host: localhost:${server.port}
+    author: ds
+    email: 1159629515@qq.com
+

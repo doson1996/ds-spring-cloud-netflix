@@ -12,13 +12,7 @@ import lombok.Data;
  * @author ds
  */
 @Data
-public class User {
-    /**
-     * id
-     */
-    @TableId(type = IdType.AUTO)
-    private Long id;
-
+public class User extends BaseDomain {
     /**
      * 用户名
      */

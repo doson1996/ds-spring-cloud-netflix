@@ -19,6 +19,16 @@ spring:
           # 前缀过滤，默认配置下，我们的请求路径是 http://localhost:9001/admin-consumer/** 这时会路由到指定的服务
           # 此处配置去掉 1 个路径前缀，再配置上面的 Path=/api/**，就能按照 http://localhost:9001/api/** 的方式访问了
           - StripPrefix=1
+      # 用户服务
+      - id: user_service_route
+        uri: lb://user-service
+        predicates:
+          - Path=/user/api/**
+        filters:
+          # 前缀过滤，默认配置下，我们的请求路径是 http://localhost:9001/user-service/** 这时会路由到指定的服务
+          # 此处配置去掉 2 个路径前缀，再配置上面的 Path=/api/user/**，就能按照 http://localhost:9001/api/user/** 的方式访问了
+          - StripPrefix=2
+
       - id: before_baidu_route
         uri: http://www.baidu.com
         predicates:

@@ -11,7 +11,7 @@ import lombok.Data;
 @ApiModel("user修改参数")
 public class UserUpdateParam {
     /**
-     * 用户名
+     * id
      */
     @ApiModelProperty(value = "id" , required = true)
     private String id;
@@ -21,4 +21,10 @@ public class UserUpdateParam {
      */
     @ApiModelProperty(value = "姓名" , required = true)
     private String name;
+
+    /**
+     * 是否删除
+     */
+    @ApiModelProperty(value = "是否删除")
+    private Boolean isDelete;
 }

@@ -1,6 +1,5 @@
 package com.ds.common.result;
 
-
 /**
  * 返回消息
  * @author ds
@@ -10,7 +9,7 @@ public class ResultMsg {
     /**
      * 返回成功消息
      */
-    public static final String SUCCESS_MSG = "success";
+    public static final String SUCCESS_MSG = "ok";
 
     /**
      * 返回失败消息

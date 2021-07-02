@@ -39,6 +39,7 @@ public enum ResultEnum {
     PARAM_IS_BLANK(2002, "参数为空"),
     PARAM_TYPE_BIND_ERROR(2003, "参数类型错误"),
     PARAM_NOT_COMPLETE(2004, "参数缺失"),
+    REQUEST_JSON_PARSING_FAILED(2004, "请求JSON解析失败"),
 
     /**
      * 接口调用异常 3000 - 3999
@@ -49,10 +50,7 @@ public enum ResultEnum {
     INTERFACE_FORBID_VISIT(3003, "接口禁止访问"),
     INTERFACE_ADDRESS_INVALID(3004, "接口地址无效"),
     INTERFACE_REQUEST_TIMEOUT(3005, "接口请求超时"),
-    INTERFACE_EXCEED_LOAD(3006, "接口负载过高"),
-
-
-    END(500, "END");
+    INTERFACE_EXCEED_LOAD(3006, "接口负载过高");
 
     /**
      * code

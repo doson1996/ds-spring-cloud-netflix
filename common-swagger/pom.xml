@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ds</groupId>
-    <artifactId>admin-consumer</artifactId>
+    <artifactId>common-swagger</artifactId>
     <version>${rversion}</version>
     <packaging>jar</packaging>
-    <name>admin-consumer</name>
-    <description>admin-consumer</description>
+    <name>common-swagger</name>
+    <description>common-swagger</description>
 
     <parent>
         <groupId>com.ds</groupId>
@@ -26,34 +26,30 @@
         <dependency>
             <groupId>${parent.groupId}</groupId>
             <artifactId>common</artifactId>
-            <version>${rversion}</version>
         </dependency>
 
         <dependency>
-            <groupId>${parent.groupId}</groupId>
-            <artifactId>common-swagger</artifactId>
-            <version>${rversion}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- swagger begin-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
-        </dependency>
+        <!-- swagger end-->
     </dependencies>
 
 </project>
